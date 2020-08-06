@@ -33,5 +33,31 @@ Output: [true,false,true]
 1 <= extraCandies <= 50
 ```
 
-###Solutions
+### Solutions
+```
+print(len(candies))
+class Solution01:
+    def KidsWithCandies(self):
+        MaxCandies = max(candies)
+        Output=[]
+        for i in candies:
+            Output.append(i + extraCandies >= MaxCandies)
+        return Output
+    print(KidsWithCandies(candies))
+```
+```
+candies = [2,3,5,1,3]
+extraCandies = 3
+print(len(candies))
+class Solution01:
+    def KidsWithCandies(self):
+        maxnum = max(candies)
+        output = candies
+        for i in range(len(candies)):
+            if candies[i-1] + extraCandies >= maxnum:
+                output[i-1] = True
+            else:
+                output[i-1] = False
+        return output
+    print(KidsWithCandies(candies))
 ```
