@@ -59,5 +59,29 @@ class Solution03:
     print(runningSum(nums,nums)) #这个就是Solution01，不知道是谁抄谁呢...
 ```
 
+```
+class Solution04:
+    def runningSum(self, nums):
+        newnums = nums[0]
+        for i in range(1, len(nums)):
+            nums[i]=newnums + nums[i]
+            newnums = nums[i]
+        return nums
+    print(runningSum(nums, nums))
+```
+```
+class Solution05:
+    def runningSum(self, nums):
+        if len(nums) == 1:
+            newnums = nums
+            return newnums
+        else:
+            newnums = [nums[0]]
+            for i in range(1, len(nums)):
+                newnums.append(newnums[i-1]+nums[i])
+            return newnums
+    print(runningSum(nums,nums))
+```
+ 
 ### Source
 [LeetCode](https://leetcode-cn.com/)
