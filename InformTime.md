@@ -52,3 +52,49 @@ informTime.length == n
 informTime[i] == 0 if employee i has no subordinates.
 It is guaranteed that all the employees can be informed.
 ```
+
+### Solutions
+```
+from queue import Queue
+from collections import defaultdict
+
+class Solution01:
+
+    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+        visited = [False] * n
+        result = 0
+
+        for i in range(n):
+            if visited[i]:
+                continue
+            total = 0
+
+            while manager[i] != -1:
+                visited[i] = True
+                i = manager[i]
+                total += informTime[i]
+
+            result = max(total, result)
+
+        return result
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
