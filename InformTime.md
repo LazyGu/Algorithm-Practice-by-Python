@@ -78,8 +78,28 @@ class Solution01:
 
         return result
 ```
+```
+from collections import defaultdict
 
+class Solution02:
+    total = 0
 
+    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+        tmp = defaultdict(list)
+
+        for i in range(len(manager)):
+            tmp[manager[i]].append(i)
+    
+        self.dfs(tmp, informTime, headID, 0)
+        return self.total
+
+    def dfs(self, tmp, informTime, head_id, total):
+        if not tmp[head_id]:
+            self.total = max(self.total, total)
+
+        for id_ in tmp[head_id]:
+            self.dfs(tmp, informTime, id_, total+informTime[head_id])
+```
 
 
 
