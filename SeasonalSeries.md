@@ -1,4 +1,4 @@
-# Algorithm-Practice-by-Python
+# Seasonal Series
 ```
 import numpy as np
 
